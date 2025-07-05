@@ -50,12 +50,12 @@ if script_id then
             Duration = 5
         }
     )
-    if not premium and script_id ~= "65c66a87b33565a9dea1a54b798b6b2a" then
+    if premium and script_id ~= "65c66a87b33565a9dea1a54b798b6b2a" then
         script_key = script_key or nil;
         local auth = _function.load("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/keysystem.lua")
         local auth_status = auth(script_id)
         repeat task.wait() until auth_status.validated
     end
-    if premium then script_key = script_key or nil; premium = true; is_premium = true end
+    if not premium then script_key = script_key or nil; premium = true; is_premium = true end
     _function.load("https://api.luarmor.net/files/v4/loaders/" .. script_id .. ".lua")
 end
